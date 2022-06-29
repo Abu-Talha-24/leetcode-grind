@@ -10,10 +10,7 @@
  */
 int lengthofLL(ListNode* head) {
     int count = 0;
-    while(head != NULL){
-        head = head -> next;
-        count++;
-    }
+    while(head) head = head->next, count++;
     return count;
 }
 ListNode* prevtailofLL(ListNode* head,int length) {
@@ -29,9 +26,10 @@ public:
         if (head == NULL || length == 1) {
             return head;
         }
-        k%=length;
+        k %= length; // This freaking line cost me a fucking hour
+        // this means doing k rotations and `k % length` rotations give the same result - hence more efficient
 
-        for(int i = 0; i < k; i++) {
+        for(int i = 0; i < k; i++) { // while(k--)
             ListNode* prevtail = prevtailofLL(head, length); // returns the node previous to tail
             ListNode* tail = prevtail->next;
             prevtail -> next = NULL;
