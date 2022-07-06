@@ -1,15 +1,18 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        for (int i = 0; i < s.size(); i++) {
-            bool found = false;
-            for (int j = 0; j < s.size(); j++) {
-                if ( s[i] == s[j] && i != j) {
-                    found = true;
-                    break;
-                }
+        int arr[26]={0};
+        
+        for(int i=0;i<s.length();i++){
+            int c=s[i]-'a';
+            arr[c]++;
+        }
+        
+        for(int i=0;i<s.length();i++){
+            int c=s[i]-'a';
+            if(arr[c]==1){
+                return i;
             }
-            if (!found) return i; 
         }
         return -1;
     }
