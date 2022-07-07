@@ -1,20 +1,18 @@
 class MyStack {
 public:
-    queue<int> q1;
     queue<int> q2;
+    
     MyStack() {
 
     }
     
     void push(int x) {
-        if (q1.empty() && q2.empty())  {
-            q1.push(x);
+        if (q2.empty())  {
             q2.push(x);
         }
         else {
-            q1.push(x);
             // remove all elements from q2 , push x then remaining
-            int n = q2.size();
+            int n = q2.size(); // Always take the size in a variable and use it .
             vector<int> arr(n);
             int i = 0;
             while(!q2.empty()) {
@@ -34,7 +32,6 @@ public:
         int res = q2.front();
         q2.pop();
         return res;
-        
         
     }
     
