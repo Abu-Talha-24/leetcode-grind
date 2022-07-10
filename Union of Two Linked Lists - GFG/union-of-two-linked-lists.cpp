@@ -86,7 +86,7 @@ struct Node* makeUnion(struct Node* head1, struct Node* head2)
 {
     Node* temp1 = head1;
     map<int,int> hmap;
-    while (temp1) {
+    while (temp1) {              // I actually did temp1-> next != NULL which is WRONG>
         hmap[temp1->data]++;
         temp1 = temp1 -> next;
     }
