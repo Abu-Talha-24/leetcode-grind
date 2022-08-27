@@ -1,22 +1,22 @@
 class Solution:
 	def subarraySum(self, nums: List[int], k: int) -> int:
+		count = 0
+		prefsum = 0
+		d = {0:1}
 
-		ans=0
-		prefsum=0
-		d={0:1}
-
-		for num in nums:
-			prefsum = prefsum + num
-
+		for i in range(len(nums)):
+			prefsum += nums[i]
+            # If the (prefixsum - target) occured as a prefix already
 			if prefsum-k in d:
-				ans = ans + d[prefsum-k]
-
+				count += d[prefsum-k]  # every occurence is the start of subarray
+            
+            # Storing the no. of times a prefix sum occurs
 			if prefsum not in d:
 				d[prefsum] = 1
 			else:
 				d[prefsum] = d[prefsum]+1
 
-		return ans
+		return count
         
         
    # Can't use SLIDING WINDOW FOR NEGATIVE NUMBERS
