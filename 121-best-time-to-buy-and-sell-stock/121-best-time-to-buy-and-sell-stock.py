@@ -6,11 +6,13 @@ class Solution:
         profit = 0
         
         for i in range(n):
-            mini = min(mini, prices[i])
             
+            mini = min(mini, prices[i])
             profit = max(profit, prices[i] - mini)
             
         return profit
+            
+            
             
             
             
