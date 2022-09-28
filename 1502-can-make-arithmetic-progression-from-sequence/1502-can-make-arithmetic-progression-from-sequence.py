@@ -4,8 +4,10 @@ class Solution:
         
         arr.sort()
         
-        for i in range(n-2):
-                if arr[i+1]-arr[i] != arr[i+2] - arr[i+1]:
+        diff = arr[1] - arr[0]
+        
+        for i in range(n-1):
+                if arr[i+1] - arr[i] != diff:
                     return False
         
         return True
