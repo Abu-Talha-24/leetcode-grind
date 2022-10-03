@@ -6,7 +6,7 @@ class Solution:
         def backtrack(start, comb):
             if len(comb) == k:
                 res.append(comb.copy())
-                return
+                return 
             
             for i in range(start, n + 1):
                 comb.append(i)
@@ -14,8 +14,5 @@ class Solution:
                 comb.pop()
         
         backtrack(1, [])
-        
         return res
-            
-            
         
