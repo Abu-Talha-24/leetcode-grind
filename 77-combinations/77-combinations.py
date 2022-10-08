@@ -8,11 +8,14 @@ class Solution:
                 res.append(comb.copy())
                 return 
             
-            for i in range(start, n + 1):
+            for i in range(start,n + 1):
                 comb.append(i)
-                backtrack(i + 1, comb)
+                backtrack(i+1,comb)
                 comb.pop()
         
-        backtrack(1, [])
-        return res
         
+        backtrack(1, []);
+        
+        return res
+    
+    
