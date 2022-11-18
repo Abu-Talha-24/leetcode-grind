@@ -1,18 +1,9 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         
-        num = ""
-        for n in digits:
-            num += str(n)
+        s = ''.join([str(d) for d in digits])
         
-        num = int(num)
+        total = int(s) + 1
         
-        num += 1
-        
-        num = str(num)
-        
-        res = [x for x in num]
-
-        return res
-            
+        return [int(i) for i in str(total)]
         
