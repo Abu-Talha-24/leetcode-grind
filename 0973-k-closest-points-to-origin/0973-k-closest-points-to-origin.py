@@ -1,22 +1,19 @@
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        
+        # Complexity : O(klogn)
+        
+        pts = []
+        for x, y in points:
+            dist = (abs(x - 0) ** 2) + (abs(y - 0) ** 2)
+            pts.append([dist, x, y])
 
-        
-        maxHeap = []
-        heapq.heapify(maxHeap)
-        
-        for point in points:
-            x = point[0]
-            y = point[1]
-            dist = math.sqrt(x**2 + y**2)
-            tup = (-dist, [x,y])
-            heapq.heappush(maxHeap, tup)
-            if len(maxHeap) > k:
-                heapq.heappop(maxHeap)
-        
+            
         res = []
-        for point in maxHeap:
-            res.append(point[1])
+        heapq.heapify(pts)  # O(n) 
         
+        # Get the lowest(nearest) k points
+        for i in range(k):                     # k
+            dist, x, y = heapq.heappop(pts)        # log n
+            res.append([x, y])
         return res
-        
