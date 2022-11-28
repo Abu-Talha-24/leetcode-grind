@@ -1,9 +1,10 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         
+        # Complexity : O(n*log(n)) - sort
+        
         while len(stones) > 1:
             stones.sort()
-            print(stones)
             stone1 = stones.pop()
             stone2 = stones.pop()
             if stone1 == stone2:
