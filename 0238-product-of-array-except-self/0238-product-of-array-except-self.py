@@ -6,13 +6,11 @@ class Solution:
         prefix = [1]*n
         
         for i in range(n-1):
-            prefix[i+1] = nums[i] * prefix[i]
+            prefix [i+1] = nums[i] * prefix[i]
         
         prod = 1
         for i in range(n-1, 0, -1):
             prod = nums[i] * prod
-            prefix[i-1] = prefix [i-1] * prod
+            prefix[i-1] = prefix[i-1] * prod
         
         return prefix
-            
-        
