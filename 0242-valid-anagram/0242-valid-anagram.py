@@ -1,9 +1,8 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         
-        sstr = [c for c in s]
-        tstr = [c for c in t]
-        sstr.sort()
-        tstr.sort()
         
-        return sstr == tstr
+        count1 = Counter([char for char in s])
+        count2 = Counter([char for char in t])
+        
+        return count1 == count2
