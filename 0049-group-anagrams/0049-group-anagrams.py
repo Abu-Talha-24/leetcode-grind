@@ -1,19 +1,15 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
+        res = defaultdict(list)
         
-        # Complexity : O (m * n)
+        for word in strs:
+            alpha = [0]*26
+            for char in word:
+                alpha[ord(char) - ord("a")] += 1
+            
+            res[tuple(alpha)].append(word)
         
-        res = defaultdict(list) # charCount to list of anagrams
-        
-        for s in strs:
-            count = [0] * 26  # a ... z
-            
-            for c in s:
-                count[ord(c) - ord("a")] += 1
-            
-            res[tuple(count)].append(s)
-            
         return res.values()
                 
-                
+        
