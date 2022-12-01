@@ -6,14 +6,13 @@ class Solution:
         
         while l < r:
             
-            tempsum = numbers[l] + numbers[r]
+            s = numbers[l] + numbers[r]
             
-            if tempsum == target:
+            if s == target:
                 return [l+1, r+1]
-            
-            elif tempsum < target:
+            elif s < target:
                 l += 1
-            elif tempsum > target:
+            elif s > target:
                 r -= 1
         
         return []
