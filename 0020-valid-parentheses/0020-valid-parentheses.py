@@ -7,9 +7,14 @@ class Solution:
         for char in s:
             if char not in hm:
                 stack.append(char)
-                continue
-            if not stack or stack[-1] != hm[char]:
-                return False
-            stack.pop()
+            else:
+                if stack and hm[char] == stack[-1]:
+                    stack.pop()
+                else:
+                    stack.append(char)
         
-        return not stack
+        
+        return len(stack) == 0
+            
+
+        
