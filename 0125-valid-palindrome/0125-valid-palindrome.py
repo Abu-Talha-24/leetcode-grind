@@ -1,6 +1,7 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         
+        n = len(s)
         l = 0
         r = len(s) - 1
         
@@ -15,14 +16,13 @@ class Solution:
             r -= 1
         
         return True
-        
+    
+    
     
     def alphanum(self, char):
-        if (
+        return (
             ord("a") <= ord(char) <= ord("z")
             or ord("A") <= ord(char) <= ord("Z")
             or ord("0") <= ord(char) <= ord("9")
-        ):
-            return True
-        else:
-            return False
+        )
+        
