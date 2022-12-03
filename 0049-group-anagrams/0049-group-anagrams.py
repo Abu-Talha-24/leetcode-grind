@@ -4,12 +4,11 @@ class Solution:
         res = defaultdict(list)
         
         for word in strs:
-            alpha = [0]*26
-            for char in word:
-                alpha[ord(char) - ord("a")] += 1
+            hm = [0] * 26
+            for c in word:
+                hm[ord(c) - ord("a")] += 1
             
-            res[tuple(alpha)].append(word)
+            res[tuple(hm)].append(word)
         
         return res.values()
-                
         
