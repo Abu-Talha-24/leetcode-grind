@@ -1,11 +1,8 @@
 class Solution:
-    def closeStrings(self, word1: str, word2: str) -> bool:
+    def closeStrings(self, w1: str, w2: str) -> bool:
         
-        cnt1 = Counter(word1)
-        cnt2 = Counter(word2)
+        c1 = Counter(w1)
+        c2 = Counter(w2)
         
-        print( sorted(list(cnt1.values())), sorted(list(cnt2.values())) )
-        
-        
-        return sorted(list(cnt1.values())) == sorted(list(cnt2.values())) and set(cnt1.keys()) == set(cnt2.keys())
-        
+        return c1.keys()==c2.keys() and sorted(c1.values()) == sorted(c2.values())
+    
