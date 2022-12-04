@@ -4,16 +4,14 @@ class Solution:
         res = ""
         
         for i in range(len(strs[0])):
-            for s in strs:
-                if i == len(s) or s[i] != strs[0][i]:
+            char = strs[0][i]
+            for j in range(len(strs)):
+                print(char)
+                if len(strs[j]) > i and strs[j][i] != char:
                     return res
-            res += strs[0][i]
-        
+                elif len(strs[j]) <= i:
+                    return res
+                
+            res += char        
         return res
-        
-        
-        
-         
-            
-        
         
