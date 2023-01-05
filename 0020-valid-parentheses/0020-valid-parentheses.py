@@ -4,16 +4,15 @@ class Solution:
         hm = {")": "(",
               "]": "[",
               "}": "{"}
-        stack = []
+        
+        st = []
         
         for char in s:
             if char not in hm:
-                stack.append(char)
+                st.append(char)
+            elif st and hm[char] == st[-1]:
+                st.pop()
             else:
-                if stack and stack[-1] == hm[char]:
-                    stack.pop()
-                else:
-                    stack.append(char)
+                return False
         
-        return len(stack) == 0
-                
+        return len(st) == 0
