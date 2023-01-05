@@ -3,20 +3,23 @@ class Solution:
         
         n = len(nums)
         s = sum(nums)
-        res = [float("inf"), 0]
+        ans, mini = 0, float("inf")
         prefix = 0
         
         for i in range(n):
+            s -= nums[i]
             prefix += nums[i]
             if i == n-1:
-                diff = abs( prefix // (i+1) - 0 )
+                avg = abs( (prefix) // (i+1) )
             else:
-                diff = abs( prefix // (i+1) - (s - prefix) // (n-1-i) )
+                avg = abs( (prefix) // (i+1) - (s // (n - (i+1)) ) )
+            if avg < mini:
+                ans, mini = i, avg
+        
+        return ans
+                
+                
 
-            if diff < res[0]:
-                res = [diff, i]
-        
-        return res[1]
             
-        
-        
+    
+            
