@@ -13,7 +13,7 @@ class Solution:
                 res.append(prev)
                 continue
             if points[i][0] <= prev[1]: # has overlapping
-                pt = [points[i][0], min(prev[1], points[i][1])]
+                pt = [points[i][0], min(prev[1], points[i][1])]  # 0 is sorted but 1 isn't so choosing min
                 res[-1] = pt # replace the last one as it is overlapped
                 prev = pt
             else:
