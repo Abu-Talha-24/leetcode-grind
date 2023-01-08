@@ -6,22 +6,20 @@
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head: return None
-        
-        odd = head
+            
+        curr = head
         evenHead = head.next
-        even = head.next
         
-        while even and even.next:
-            
-            odd.next = odd.next.next
-            odd = odd.next
-            
-            even.next = even.next.next
-            even = even.next
+        while curr.next and curr.next.next :
+            even = curr.next#2, 
+            curr.next = curr.next.next
+            curr = curr.next # 3
+            even.next = curr.next
         
-        odd.next = evenHead
+        curr.next = evenHead
         
         return head
             
-            
+        
+        
         
