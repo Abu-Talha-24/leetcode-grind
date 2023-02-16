@@ -8,11 +8,11 @@ class Solution:
         st = []
         
         for char in s:
-            if char not in hm:
+            if char not in hm.keys():
                 st.append(char)
-            elif st and hm[char] == st[-1]:
+            elif len(st) and hm[char] == st[-1]:
                 st.pop()
             else:
                 return False
         
-        return len(st) == 0
+        return not len(st)
