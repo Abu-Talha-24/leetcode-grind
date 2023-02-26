@@ -4,22 +4,17 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         n = len(nums)
-        i = ins = 0
+        p = 0
+        for i in range(n):
+            if nums[i] < 1:
+                nums[p], nums[i] = nums[i], nums[p]
+                p += 1
         
-        def swap(i, j):
-            nums[i], nums[j] = nums[j], nums[i]
+        p = n-1
         
-        while (i < n):
-            if nums[i] < 1: # sort all 0's from left (ins)
-                swap(i, ins)
-                ins += 1
-            i+= 1
-        
-        i = ins = n-1
-        
-        while (i >= 0): 
-            if nums[i] > 1: # sort all 2's from right (ins)
-                swap(i, ins)
-                ins -= 1
-            i-= 1
-                   
+        for i in range(n-1, -1, -1):
+            if nums[i] > 1:
+                nums[p], nums[i] = nums[i], nums[p]
+                p -= 1
+            
+            
