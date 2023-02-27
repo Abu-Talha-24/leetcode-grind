@@ -3,17 +3,23 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        l = 1
-        r = n
-        result = 1
         
-        while l <= r:
-            mid = (l + r) // 2
-            if isBadVersion(mid) == False:
-                l = mid + 1
-            else:
+        # find the first occurence of bad(true) val
+        # good good good bad bad
+        # false false false true true
+        
+        l, r = 0, n
+        
+        while (l <= r):
+            
+            mid = (l+r) // 2
+            
+            ver = isBadVersion(mid)
+            
+            if ver is True:
                 r = mid - 1
-                result = mid
-                
-        return result
+            elif ver is False:
+                l = mid + 1
         
+        return l
+                
