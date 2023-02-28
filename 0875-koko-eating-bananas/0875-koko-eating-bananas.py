@@ -1,19 +1,24 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        l, r = 1, max(piles)
+        # the possible ranges of k is 1..n
+        n = max(piles)
+        l, r = 1, n
         
-        res = r # the max element is the answer in worst case
+        # n is answer in worst case
+        res = n
         
-        while l <= r:
-            k = (l + r) // 2
+        # calculate total time needed to eat with each 'k'(per hour eating)
+        while l <=r:
+            k = (l+r) // 2
             hours = 0
             for p in piles:
-                hours += math.ceil(p / k) # hours needed to eat with that 'k'
-                
-            if hours <= h: # if it's less(valid) 
-                res = min(res, k) # check if it's min
-                r = k - 1 # to check if even less is possible
-            else:
-                l = k + 1 # to make it less hours increase k.
+                hours += math.ceil(p / k)
+            
+            if hours <= h:
+                res = min(res, k)
+                r = k - 1
+            elif hours >= h:
+                l = k + 1
         
         return res
+        
