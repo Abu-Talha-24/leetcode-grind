@@ -1,1 +1,1 @@
-​
+the last else part need to has the RIGHT SUBTREE for the minimum val as the right subtree has greater vals
