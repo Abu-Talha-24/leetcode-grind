@@ -2,18 +2,14 @@ class MyStack:
 
     def __init__(self):
         self.q = deque()
-        
 
     def push(self, x: int) -> None:
         self.q.append(x)
 
     def pop(self) -> int:
         n = len(self.q)
-        i = n-1
-        while i > 0:
+        for i in range(n-1):
             self.q.append(self.q.popleft())
-            i -= 1
-        
         return self.q.popleft()
 
     def top(self) -> int:
