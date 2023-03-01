@@ -3,7 +3,7 @@ class Solution:
         
         a, b = 1, 1
         
-        for i in range(n):
-            a, b = b, a+b
-            
+        for _ in range(n):
+            a, b = b, a + b
+        
         return a
