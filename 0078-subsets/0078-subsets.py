@@ -3,19 +3,18 @@ class Solution:
         
         res = []
         
-        subset = []
-        def dfs(i):
+        def dfs(i, curr):
             if i >= len(nums):
-                res.append(subset.copy())
-                return 
+                res.append(curr.copy())
+                return
             
-            # decision to include nums[i]
-            subset.append(nums[i])
-            dfs(i + 1)
+            curr.append(nums[i])
+            dfs(i + 1, curr)
             
-            # decision not to include nums[i]
-            subset.pop()
-            dfs(i + 1)
+            curr.pop()
+            dfs(i + 1, curr)
         
-        dfs(0) # passing the first index to start
+        
+        dfs(0, [])
+        
         return res
