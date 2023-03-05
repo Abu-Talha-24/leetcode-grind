@@ -3,20 +3,27 @@ class Solution:
         
         res = []
         
-        def dfs(i, cur, total):
+        def dfs(i, curr, total):
             if total == target:
-                res.append(cur.copy())
-                return 
+                res.append(curr.copy())
+                return
             if i >= len(candidates) or total > target:
-                return 
+                return
             
-            cur.append(candidates[i])
-            dfs(i, cur, total + candidates[i])
+            curr.append(candidates[i])
+            dfs(i, curr, total + candidates[i])
             
-            cur.pop()
-            dfs(i+1, cur, total)
-            
+            curr.pop()
+            dfs(i + 1, curr, total )
+        
         
         dfs(0, [], 0)
         
         return res
+            
+            
+            
+        
+        
+        
+        
