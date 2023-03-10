@@ -5,26 +5,26 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:  
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        
+        # level order 
+        # print level[-1]
         res = []
         q = deque()
         if root:
             q.append(root)
         
-        while len(q) > 0:
-            qLen = len(q)
-            
-            for i in range(qLen):
-                node = q.popleft()
-                if i == qLen-1: # last node at the end of the level
-                    res.append(node.val)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+        while q:
+            level = []
+            for i in range(len(q)):
+                root = q.popleft()
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)
+                level.append(root.val)
+            res.append(level[-1])
+        
         return res
-        
-        
-        
-        
+                
         
