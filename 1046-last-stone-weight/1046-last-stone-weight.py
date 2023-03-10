@@ -1,23 +1,23 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         
-        # Complexity : O(nlogn) 
+        max_heap = [-x for x in stones]
         
-        stones = [-s for s in stones] # Making a max heap
-        heapq.heapify(stones)
+        heapq.heapify(max_heap)
         
-        while len(stones) > 1:
-            first = heapq.heappop(stones)
-            second = heapq.heappop(stones)
-            # ! Opposite signs as the values in heap are -ve
-            if second > first:   #!
-                heapq.heappush(stones, first - second)  #!
-                    
-                
-        return abs(stones[0]) if len(stones) > 0 else len(stones)
-                
-        
-                    
-                    
+        while len(max_heap) > 1:
+            s1 = heapq.heappop(max_heap)
+            s2 = heapq.heappop(max_heap)
             
+            if s1 != s2:
+                # new = max(s1, s2) - min(s1, s2)
+                new = min(s1, s2) - max(s1, s2)
+                heapq.heappush(max_heap, new)
+            
+        # return max_heap
+        return -max_heap[0] if max_heap else 0
+                
+            
+            
+        
         
