@@ -1,6 +1,6 @@
 you know the drill
 ​
-it's ** Recursive** !
+it's  Tree -> ** Recursive** !
 ​
 -> Just write the code as if it is for the first level.
 ​
