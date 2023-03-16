@@ -6,31 +6,29 @@
 #         self.right = right
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
-        return self.delete(root, key)
-        
-    def minNode(self, root):
-        curr = root
-        while curr and curr.left:
-            curr = curr.left
-        return curr.val
-    
-    def delete(self, root, key):
         if not root:
             return root
         
+        def min_value(curr):
+            # min value of of right sub tree
+            while curr and curr.left:
+                curr = curr.left
+            return curr.val
+        
+        # find node - BST property
         if key > root.val:
-            root.right = self.delete(root.right, key)
+            root.right = self.deleteNode(root.right, key)
         elif key < root.val:
-            root.left = self.delete(root.left, key)
-        else: # if found node
-            if not root.left: 
+            root.left = self.deleteNode(root.left, key)
+        else:
+            if not root.left:
                 return root.right
-            elif not root.right:
+            if not root.right:
                 return root.left
             else:
-                minVal = self.minNode(root.right) 
-                root.val = minVal
-                root.right = self.delete(root.right, minVal)
-        
+                # minimum node from right subtree
+                minVal = min_value(root.right) # the value to be replaced with
+                root.val = minVal # replace it
+                root.right = self.deleteNode(root.right, minVal) # delete the replaced node
+            
         return root
-                
