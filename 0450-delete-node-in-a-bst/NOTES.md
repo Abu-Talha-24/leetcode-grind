@@ -1,5 +1,8 @@
-- the last else part need to has the RIGHT SUBTREE for the minimum val as the right subtree has greater value so when replaced all the children are less
+**Hint 1:**
+Find a Node ? -> BST Property
+**Hint 2:**
+The else part gets the *minimum val from RIGHT SUBTREE* as the right subtree has greater value so when replaced with minval the BST property is maintained
 ​
-- handle NULL !
-​
-- first handle if the val doesn't have child just attach the next child
+**Caution:**
+-> first handle if the val doesn't have child just attach the next child
+-> handle NULL !
