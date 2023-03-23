@@ -2,6 +2,7 @@ class MyStack:
 
     def __init__(self):
         self.q = deque()
+        
 
     def push(self, x: int) -> None:
         self.q.append(x)
