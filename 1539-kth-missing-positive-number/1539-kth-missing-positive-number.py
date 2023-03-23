@@ -1,20 +1,20 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
+    
+        n = len(arr)
         
-        miss = []
         num = 1
-        
         i = 0
-        while i < len(arr):
-            if num != arr[i]:
-                miss.append(num)
-                num += 1
+        while k > 0:
+            if i < n:
+                if num == arr[i]:
+                    i += 1
+                else: # missing number
+                    k -= 1
             else:
-                num += 1
-                i += 1
-        while len(miss) < k:
-            miss.append(num)
+                k -= 1
             num += 1
-        
-        return miss[k-1]
+            
+        return num - 1
+            
             
