@@ -4,22 +4,21 @@
 class Solution:
     def firstBadVersion(self, n: int) -> int:
         
-        # find the first occurence of bad(true) val
-        # good good good bad bad
-        # false false false true true
+        l, r = 1, n
         
-        l, r = 0, n
-        
-        while (l <= r):
+        while l <= r:
+            mid = (l + r) // 2
             
-            mid = (l+r) // 2
+            isBad = isBadVersion(mid)
             
-            ver = isBadVersion(mid)
-            
-            if ver is True:
+            if isBad == True:
                 r = mid - 1
-            elif ver is False:
+            else:
                 l = mid + 1
+                
         
         return l
-                
+            
+            
+        
+        
