@@ -4,5 +4,5 @@ class Solution:
         result = 0
         for index in range(len(nums)):
             total_sum += nums[index]
-            result = max(result, (total_sum + index) // (index + 1))
+            result = max(result, math.ceil((total_sum) / (index + 1)))
         return int(result)
